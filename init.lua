@@ -65,9 +65,6 @@ require("render-markdown").setup {
   completions = { lsp = { enabled = true } },
 }
 require("treesitter-context").setup()
-local highlight = {
-  "RainbowRed",
-}
 
 local hooks = require "ibl.hooks"
 -- create the highlight groups in the highlight setup hook, so they are reset
@@ -76,6 +73,4 @@ hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
   vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
 end)
 
-require("ibl").setup { scope = { highlight = highlight } }
-vim.keymap.set("t", "<ESC>", "<C-\\><C-n>", { noremap = true })
-vim.keymap.set("n", "<A-b>", "<cmd> CMakeBuild <cr>", { desc = "Run CMake build" })
+require("ibl").setup { scope = { highlight = { "RainbowRed" } } }
