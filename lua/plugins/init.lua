@@ -75,7 +75,22 @@ return {
 
   {
     "folke/trouble.nvim",
+    lazy = false,
     dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {
+      modes = {
+        diagnostics = {
+          mode = "diagnostics",
+          preview = {
+            type = "split",
+            relative = "win",
+            position = "right",
+            size = 0.5,
+          },
+        },
+      },
+    },
+    cmd = "Trouble",
   },
   -- {
   -- 	"nvim-treesitter/nvim-treesitter",
