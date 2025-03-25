@@ -45,7 +45,19 @@ return {
     config = function()
       require("copilot").setup {
         panel = { enabled = false },
-        suggestion = { auto_trigger = true },
+        suggestion = { auto_trigger = true, keymap = { accept = "<C-a>", next = "<C-=>", prev = "<C-->" } },
+      }
+    end,
+  },
+
+  {
+    "Isrothy/neominimap.nvim",
+    version = "v3.*.*",
+    enabled = true,
+    lazy = false, -- NOTE: NO NEED to Lazy load
+    init = function()
+      vim.g.neominimap = {
+        auto_enable = true,
       }
     end,
   },

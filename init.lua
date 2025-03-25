@@ -56,4 +56,6 @@ require("conform").setup {
     async = true,
   },
 }
+require("lspconfig").ts_ls.setup {}
+vim.keymap.set("t", "<ESC>", "<C-\\><C-n>", { noremap = true })
 vim.keymap.set("n", "<A-b>", "<cmd> CMakeBuild <cr>", { desc = "Run CMake build" })
