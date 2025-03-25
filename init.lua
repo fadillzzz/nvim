@@ -50,12 +50,13 @@ require("conform").setup {
   formatters_by_ft = {
     c = { "clang-format" },
     cpp = { "clang-format" },
+    ts = { "prettierd", "prettier", stop_after_first = true },
+    js = { "prettierd", "prettier", stop_after_first = true },
   },
   format_after_save = {
     lsp_format = "fallback",
     async = true,
   },
 }
-require("lspconfig").ts_ls.setup {}
 vim.keymap.set("t", "<ESC>", "<C-\\><C-n>", { noremap = true })
 vim.keymap.set("n", "<A-b>", "<cmd> CMakeBuild <cr>", { desc = "Run CMake build" })
