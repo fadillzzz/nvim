@@ -1,3 +1,6 @@
+if vim.fn.has "macunix" == 0 then
+  vim.opt.shell = "pwsh"
+end
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
 vim.g.mapleader = " "
 
@@ -58,5 +61,21 @@ require("conform").setup {
     async = true,
   },
 }
+require("render-markdown").setup {
+  completions = { lsp = { enabled = true } },
+}
+require("treesitter-context").setup()
+local highlight = {
+  "RainbowRed",
+}
+
+local hooks = require "ibl.hooks"
+-- create the highlight groups in the highlight setup hook, so they are reset
+-- every time the colorscheme changes
+hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+  vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
+end)
+
+require("ibl").setup { scope = { highlight = highlight } }
 vim.keymap.set("t", "<ESC>", "<C-\\><C-n>", { noremap = true })
 vim.keymap.set("n", "<A-b>", "<cmd> CMakeBuild <cr>", { desc = "Run CMake build" })
