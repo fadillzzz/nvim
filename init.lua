@@ -38,9 +38,26 @@ require "nvchad.autocmds"
 vim.schedule(function()
   require "mappings"
 end)
-
-require("overseer").setup()
+require("nvim-tree").setup {
+  live_filter = {
+    always_show_folders = false,
+  },
+  git = {
+    ignore = false,
+  },
+  filters = {
+    custom = {
+      "^.git$",
+    },
+  },
+  view = {
+    width = {
+      min = 30,
+      max = 60,
+    },
+  },
 }
+require("overseer").setup()
 require("conform").setup {
   formatters_by_ft = {
     c = { "clang-format" },
