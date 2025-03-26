@@ -40,22 +40,6 @@ vim.schedule(function()
 end)
 
 require("overseer").setup()
-require("cmake-tools").setup {
-  cmake_kits_path = vim.fn.expand "$HOME/cmake-kits/cmake-kits.json",
-  cmake_build_directory = function()
-    if vim.fn.has "macunix" == 1 then
-      return "build/${variant:buildType}"
-    end
-    return "build\\${variant:buildType}"
-  end,
-}
-require("lspconfig").clangd.setup {
-  on_new_config = function(new_config, _)
-    local status, cmake = pcall(require, "cmake-tools")
-    if status then
-      cmake.clangd_on_new_config(new_config)
-    end
-  end,
 }
 require("conform").setup {
   formatters_by_ft = {

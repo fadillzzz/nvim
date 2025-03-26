@@ -24,11 +24,6 @@ return {
   },
 
   {
-    "Civitasv/cmake-tools.nvim",
-    opts = {},
-  },
-
-  {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
