@@ -13,5 +13,6 @@ map("n", "<leader>flm", "<cmd>Telescope lsp_implementations<cr>", { desc = "Tele
 map("n", "<leader>fld", "<cmd>Telescope lsp_definitions<cr>", { desc = "Telescope Find definitions" })
 map("n", "<leader>tt", "<cmd> Telescope treesitter<cr>", { desc = "Telescope Treesitter" })
 map("n", "<leader>td", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Trouble Diagnostics" })
+map("n", "<leader><Space>", "<cmd>lua vim.lsp.buf.hover()<cr>", { desc = "cmp Show function documentation" })
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
