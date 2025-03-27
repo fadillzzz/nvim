@@ -14,4 +14,18 @@ map("n", "<leader>tt", "<cmd> Telescope treesitter<cr>", { desc = "Telescope Tre
 map("n", "<leader>td", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Trouble Diagnostics" })
 map("n", "<leader><Space>", "<cmd>lua vim.lsp.buf.hover()<cr>", { desc = "cmp Show function documentation" })
 
+map("n", "<A-b>", function()
+  require("nvchad.term").runner {
+    pos = "float",
+    id = "cmake-build",
+    cmd = function()
+      local valid_types = { "c", "cpp", "cmake" }
+
+      if valid_types[vim.bo.ft] then
+        local dir = vim.fn.getcwd()
+        return "cmake --build " .. dir .. "/build --config Release"
+      end
+    end,
+  }
+end, { desc = "CMake build" })
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
