@@ -105,12 +105,14 @@ return {
         scope = {
           underline = true,
         },
-        hl = {
-          "SnacksIndent",
-          "SnacksIndent1",
-          "SnacksIndent2",
-          "SnacksIndent3",
-          "SnacksIndent4",
+        indent = {
+          hl = {
+            "SnacksIndent",
+            "SnacksIndent1",
+            "SnacksIndent2",
+            "SnacksIndent3",
+            "SnacksIndent4",
+          },
         },
       },
       scope = {
