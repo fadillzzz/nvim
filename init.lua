@@ -83,3 +83,14 @@ hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
 end)
 
 require("ibl").setup { scope = { highlight = { "RainbowRed" } } }
+require("auto-session").setup {
+  auto_restore_last_session = true,
+  post_restore_cmds = {
+    function()
+      local nvim_tree = require "nvim-tree.api"
+      nvim_tree.tree.open()
+      nvim_tree.tree.change_root(vim.fn.getcwd())
+      nvim_tree.tree.reload()
+    end,
+  },
+}

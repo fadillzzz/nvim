@@ -82,6 +82,11 @@ return {
     },
     cmd = "Trouble",
   },
+
+  {
+    "rmagatti/auto-session",
+    lazy = false,
+  },
   -- {
   -- 	"nvim-treesitter/nvim-treesitter",
   -- 	opts = {
