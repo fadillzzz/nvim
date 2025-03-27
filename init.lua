@@ -57,6 +57,7 @@ require("nvim-tree").setup {
     },
   },
 }
+vim.api.nvim_create_user_command("Vh", "vert help <args>", { nargs = "*" })
 require("conform").setup {
   formatters_by_ft = {
     c = { "clang-format" },
