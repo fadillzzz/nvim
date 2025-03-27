@@ -14,17 +14,24 @@ map("n", "<leader>tt", "<cmd> Telescope treesitter<cr>", { desc = "Telescope Tre
 map("n", "<leader>td", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Trouble Diagnostics" })
 map("n", "<leader><Space>", "<cmd>lua vim.lsp.buf.hover()<cr>", { desc = "cmp Show function documentation" })
 
-map("n", "<A-b>", function()
+map({ "n", "t" }, "<A-b>", function()
   require("nvchad.term").runner {
     pos = "float",
-    id = "cmake-build",
+    id = "floatTerm",
+    clear_cmd = ";",
+    float_opts = {
+      width = 0.8,
+      height = 0.6,
+      row = 0.2,
+      col = 0.1,
+    },
     cmd = function()
-      local valid_types = { "c", "cpp", "cmake" }
-
-      if valid_types[vim.bo.ft] then
-        local dir = vim.fn.getcwd()
+      local dir = vim.fn.getcwd()
+      if vim.fn.filereadable(dir .. "/CMakeLists.txt") == 1 then
         return "cmake --build " .. dir .. "/build --config Release"
       end
+
+      return "echo 'No CMakeLists.txt found'"
     end,
   }
 end, { desc = "CMake build" })
