@@ -84,7 +84,7 @@ end)
 
 require("ibl").setup { scope = { highlight = { "RainbowRed" } } }
 require("auto-session").setup {
-  auto_restore_last_session = true,
+  auto_restore_last_session = vim.loop.cwd() == vim.loop.os_homedir(),
   post_restore_cmds = {
     function()
       local nvim_tree = require "nvim-tree.api"
