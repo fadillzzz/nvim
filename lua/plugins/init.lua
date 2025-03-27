@@ -87,6 +87,42 @@ return {
     "rmagatti/auto-session",
     lazy = false,
   },
+
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    enabled = false,
+  },
+
+  {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    opts = {
+      animate = {},
+      indent = {
+        enabled = true,
+        scope = {
+          underline = true,
+        },
+        hl = {
+          "SnacksIndent",
+          "SnacksIndent1",
+          "SnacksIndent2",
+          "SnacksIndent3",
+          "SnacksIndent4",
+        },
+      },
+      scope = {
+        enabled = true,
+        treesitter = {
+          blocks = { enabled = true },
+        },
+      },
+      scroll = { enabled = true },
+      words = { enabled = true },
+    },
+  },
   -- {
   -- 	"nvim-treesitter/nvim-treesitter",
   -- 	opts = {

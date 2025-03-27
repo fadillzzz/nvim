@@ -75,16 +75,15 @@ require("render-markdown").setup {
 }
 require("treesitter-context").setup()
 
-local hooks = require "ibl.hooks"
--- create the highlight groups in the highlight setup hook, so they are reset
--- every time the colorscheme changes
-hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-  vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
-end)
-
-require("ibl").setup { scope = { highlight = { "RainbowRed" } } }
+-- local hooks = require "ibl.hooks"
+-- -- create the highlight groups in the highlight setup hook, so they are reset
+-- -- every time the colorscheme changes
+-- hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+--   vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
+-- end)
+--
+-- require("ibl").setup { scope = { highlight = { "RainbowRed" } } }
 require("auto-session").setup {
-  auto_restore_last_session = vim.loop.cwd() == vim.loop.os_homedir(),
   post_restore_cmds = {
     function()
       local nvim_tree = require "nvim-tree.api"
@@ -94,3 +93,25 @@ require("auto-session").setup {
     end,
   },
 }
+vim.api.nvim_create_autocmd("QuitPre", {
+  callback = function()
+    local tree_wins = {}
+    local floating_wins = {}
+    local wins = vim.api.nvim_list_wins()
+    for _, w in ipairs(wins) do
+      local bufname = vim.api.nvim_buf_get_name(vim.api.nvim_win_get_buf(w))
+      if bufname:match "NvimTree_" ~= nil then
+        table.insert(tree_wins, w)
+      end
+      if vim.api.nvim_win_get_config(w).relative ~= "" then
+        table.insert(floating_wins, w)
+      end
+    end
+    if 1 == #wins - #floating_wins - #tree_wins then
+      -- Should quit, so we close all invalid windows.
+      for _, w in ipairs(tree_wins) do
+        vim.api.nvim_win_close(w, true)
+      end
+    end
+  end,
+})
