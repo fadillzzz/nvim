@@ -95,6 +95,11 @@ return {
   },
 
   {
+    "NMAC427/guess-indent.nvim",
+    opts = {},
+  },
+
+  {
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,

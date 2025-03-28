@@ -38,6 +38,15 @@ require "nvchad.autocmds"
 vim.schedule(function()
   require "mappings"
 end)
+
+vim.o.tabstop = 4
+vim.o.softtabstop = -1
+vim.o.shiftwidth = 0
+vim.o.shiftround = true
+vim.o.expandtab = true
+
+require("guess-indent").setup {}
+
 require("nvim-tree").setup {
   live_filter = {
     always_show_folders = false,
