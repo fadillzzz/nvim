@@ -114,6 +114,9 @@ return {
             "SnacksIndent4",
           },
         },
+        chunk = {
+          enabled = true,
+        },
       },
       scope = {
         enabled = true,
