@@ -41,6 +41,16 @@ return {
   },
 
   {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "zbirenbaum/copilot.lua",
+    },
+    opts = {},
+    cmd = "CopilotChat",
+  },
+
+  {
     "Isrothy/neominimap.nvim",
     version = "v3.*.*",
     enabled = true,
