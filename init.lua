@@ -47,6 +47,13 @@ vim.o.expandtab = true
 
 require("guess-indent").setup {}
 
+require("transparent").setup {
+  extra_groups = {
+    "NormalFloat",
+  },
+}
+require("transparent").clear_prefix "NvimTree"
+
 require("nvim-tree").setup {
   live_filter = {
     always_show_folders = false,

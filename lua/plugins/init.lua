@@ -132,6 +132,12 @@ return {
       words = { enabled = true },
     },
   },
+
+  {
+    "xiyaowong/transparent.nvim",
+    lazy = false,
+    opts = {},
+  },
   -- {
   -- 	"nvim-treesitter/nvim-treesitter",
   -- 	opts = {
