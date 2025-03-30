@@ -35,6 +35,7 @@ return {
     config = function()
       require("copilot").setup {
         suggestion = { auto_trigger = true, keymap = { accept = "<C-a>" } },
+        copilot_model = "gpt-4o-copilot",
       }
     end,
   },
