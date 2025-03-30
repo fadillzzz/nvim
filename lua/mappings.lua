@@ -13,7 +13,7 @@ map("n", "<leader>fld", "<cmd>Telescope lsp_definitions<cr>", { desc = "Telescop
 map("n", "<leader>tt", "<cmd> Telescope treesitter<cr>", { desc = "Telescope Treesitter" })
 map("n", "<leader>td", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Trouble Diagnostics" })
 map("n", "<leader><Space>", "<cmd>lua vim.lsp.buf.hover()<cr>", { desc = "cmp Show function documentation" })
-
+map("n", "<leader>lg", "<cmd>lua Snacks.lazygit()<cr>", { desc = "Lazygit" })
 map({ "n", "t" }, "<A-b>", function()
   require("nvchad.term").runner {
     pos = "float",
