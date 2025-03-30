@@ -98,6 +98,7 @@ require("auto-session").setup {
       nvim_tree.tree.open()
       nvim_tree.tree.change_root(vim.fn.getcwd())
       nvim_tree.tree.reload()
+      vim.api.nvim_set_current_buf(2)
     end,
   },
 }
