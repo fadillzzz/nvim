@@ -46,7 +46,9 @@ return {
       "nvim-lua/plenary.nvim",
       "zbirenbaum/copilot.lua",
     },
-    opts = {},
+    opts = {
+      model = "claude-3.7-sonnet",
+    },
     cmd = "CopilotChat",
   },
 
