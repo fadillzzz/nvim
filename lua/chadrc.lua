@@ -21,6 +21,16 @@ M.base46 = {
   -- 	Comment = { italic = true },
   -- 	["@comment"] = { italic = true },
   -- },
+  hl_add = {
+    SnacksIndent1 = { fg = "baby_pink" },
+    SnacksIndent2 = { fg = "pink" },
+    SnacksIndent3 = { fg = "green" },
+    SnacksIndent4 = { fg = "nord_blue" },
+    SnacksIndent5 = { fg = "yellow" },
+    SnacksIndent6 = { fg = "purple" },
+    SnacksIndent7 = { fg = "teal" },
+    SnacksIndent8 = { fg = "cyan" },
+  },
 }
 
 M.ui = {

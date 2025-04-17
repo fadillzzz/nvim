@@ -112,21 +112,31 @@ return {
     opts = {
       animate = {},
       indent = {
-        enabled = true,
         scope = {
           underline = true,
-        },
-        indent = {
           hl = {
-            "SnacksIndent",
             "SnacksIndent1",
             "SnacksIndent2",
             "SnacksIndent3",
             "SnacksIndent4",
+            "SnacksIndent5",
+            "SnacksIndent6",
+            "SnacksIndent7",
+            "SnacksIndent8",
           },
         },
-        chunk = {
-          enabled = true,
+        indent = {
+          priority = 199,
+          hl = {
+            "SnacksIndent1",
+            "SnacksIndent2",
+            "SnacksIndent3",
+            "SnacksIndent4",
+            "SnacksIndent5",
+            "SnacksIndent6",
+            "SnacksIndent7",
+            "SnacksIndent8",
+          },
         },
       },
       scope = {
