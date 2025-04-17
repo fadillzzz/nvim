@@ -80,6 +80,7 @@ require("conform").setup {
     cpp = { "clang-format" },
     ts = { "prettierd", "prettier", stop_after_first = true },
     js = { "prettierd", "prettier", stop_after_first = true },
+    rust = { "rustfmt" },
   },
   format_after_save = {
     lsp_format = "fallback",
