@@ -101,12 +101,6 @@ return {
   },
 
   {
-    "lukas-reineke/indent-blankline.nvim",
-    main = "ibl",
-    enabled = false,
-  },
-
-  {
     "NMAC427/guess-indent.nvim",
     opts = {},
   },
@@ -146,11 +140,6 @@ return {
     },
   },
 
-  {
-    "xiyaowong/transparent.nvim",
-    lazy = false,
-    opts = {},
-  },
   -- {
   -- 	"nvim-treesitter/nvim-treesitter",
   -- 	opts = {
