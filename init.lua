@@ -49,7 +49,7 @@ require("guess-indent").setup {}
 
 require("transparent").setup {
   extra_groups = {
-    "NormalFloat",
+    -- "NormalFloat",
   },
 }
 require("transparent").clear_prefix "NvimTree"
