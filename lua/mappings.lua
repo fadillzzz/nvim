@@ -10,6 +10,7 @@ map("n", "<leader>fli", "<cmd>Telescope lsp_incoming_calls<cr>", { desc = "Teles
 map("n", "<leader>flo", "<cmd>Telescope lsp_outgoing_calls<cr>", { desc = "Telescope Find outgoing calls" })
 map("n", "<leader>flm", "<cmd>Telescope lsp_implementations<cr>", { desc = "Telescope Find implementations" })
 map("n", "<leader>fld", "<cmd>Telescope lsp_definitions<cr>", { desc = "Telescope Find definitions" })
+map("n", "<leader>fls", "<cmd>Telescope lsp_workspace_symbols<cr>", { desc = "Telescope Find workspace symbols" })
 map("n", "<leader>tt", "<cmd> Telescope treesitter<cr>", { desc = "Telescope Treesitter" })
 map("n", "<leader>td", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Trouble Diagnostics" })
 map("n", "<leader><Space>", "<cmd>lua vim.lsp.buf.hover()<cr>", { desc = "cmp Show function documentation" })
