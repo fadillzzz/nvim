@@ -8,7 +8,6 @@ return {
   -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
-    event = { "BufReadPost", "BufNewFile" },
     config = function()
       require "configs.lspconfig"
     end,
@@ -25,6 +24,34 @@ return {
       ensure_installed = {
         "c",
         "cpp",
+      },
+    },
+  },
+
+  {
+    "nvim-tree/nvim-tree.lua",
+    enabled = false,
+  },
+
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "MunifTanjim/nui.nvim",
+    },
+    lazy = false,
+    opts = {
+      close_if_last_window = true,
+      filesystem = {
+        filtered_items = {
+          visible = true,
+        },
+        follow_current_file = {
+          enabled = true,
+        },
+        use_libuv_file_watcher = true,
       },
     },
   },
@@ -51,18 +78,6 @@ return {
       model = "claude-3.7-sonnet",
     },
     cmd = "CopilotChat",
-  },
-
-  {
-    "Isrothy/neominimap.nvim",
-    version = "v3.*.*",
-    enabled = true,
-    lazy = false, -- NOTE: NO NEED to Lazy load
-    init = function()
-      vim.g.neominimap = {
-        auto_enable = true,
-      }
-    end,
   },
 
   {

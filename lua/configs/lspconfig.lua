@@ -1,14 +1,25 @@
 -- load defaults i.e lua_lsp
 require("nvchad.configs.lspconfig").defaults()
 
-local lspconfig = require "lspconfig"
-
 local servers = {
   html = {},
   cssls = {},
-  clangd = {},
+  clangd = {
+    capabilities = {
+      offsetEncoding = { "utf-16" },
+    },
+  },
   ts_ls = {},
-  rust_analyzer = {},
+  rust_analyzer = {
+    settings = {
+      ["rust-analyzer"] = {
+        check = {
+          command = "cargo clippy",
+        },
+      },
+    },
+  },
+  omnisharp = {},
 }
 
 for name, opts in pairs(servers) do

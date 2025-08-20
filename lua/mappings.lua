@@ -4,6 +4,7 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 
+map("n", "<leader>e", "<cmd>Neotree<cr>", { desc = "Neotree Open", remap = true })
 map("t", "<ESC>", "<C-\\><C-n>", { noremap = true })
 map("n", "<leader>flr", "<cmd>Telescope lsp_references<cr>", { desc = "Telescope Find references" })
 map("n", "<leader>fli", "<cmd>Telescope lsp_incoming_calls<cr>", { desc = "Telescope Find incoming calls" })

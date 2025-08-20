@@ -1,6 +1,4 @@
-if vim.fn.has "macunix" == 0 then
-  vim.opt.shell = "pwsh"
-end
+vim.opt.shell = "bash"
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
 vim.g.mapleader = " "
 
@@ -47,25 +45,6 @@ vim.o.expandtab = true
 
 require("guess-indent").setup {}
 
-require("nvim-tree").setup {
-  live_filter = {
-    always_show_folders = false,
-  },
-  git = {
-    ignore = false,
-  },
-  filters = {
-    custom = {
-      "^.git$",
-    },
-  },
-  view = {
-    width = {
-      min = 30,
-      max = 60,
-    },
-  },
-}
 vim.api.nvim_create_user_command("Vh", "vert help <args>", { nargs = "*" })
 require("conform").setup {
   formatters_by_ft = {
@@ -85,36 +64,4 @@ require("render-markdown").setup {
 }
 require("treesitter-context").setup()
 
-require("auto-session").setup {
-  post_restore_cmds = {
-    function()
-      local nvim_tree = require "nvim-tree.api"
-      nvim_tree.tree.open()
-      nvim_tree.tree.change_root(vim.fn.getcwd())
-      nvim_tree.tree.reload()
-      vim.api.nvim_set_current_buf(2)
-    end,
-  },
-}
-vim.api.nvim_create_autocmd("QuitPre", {
-  callback = function()
-    local tree_wins = {}
-    local floating_wins = {}
-    local wins = vim.api.nvim_list_wins()
-    for _, w in ipairs(wins) do
-      local bufname = vim.api.nvim_buf_get_name(vim.api.nvim_win_get_buf(w))
-      if bufname:match "NvimTree_" ~= nil then
-        table.insert(tree_wins, w)
-      end
-      if vim.api.nvim_win_get_config(w).relative ~= "" then
-        table.insert(floating_wins, w)
-      end
-    end
-    if 1 == #wins - #floating_wins - #tree_wins then
-      -- Should quit, so we close all invalid windows.
-      for _, w in ipairs(tree_wins) do
-        vim.api.nvim_win_close(w, true)
-      end
-    end
-  end,
-})
+require("auto-session").setup {}
