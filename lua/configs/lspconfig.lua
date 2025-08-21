@@ -10,15 +10,6 @@ local servers = {
     },
   },
   ts_ls = {},
-  rust_analyzer = {
-    settings = {
-      ["rust-analyzer"] = {
-        check = {
-          command = "cargo clippy",
-        },
-      },
-    },
-  },
   omnisharp = {},
 }
 
